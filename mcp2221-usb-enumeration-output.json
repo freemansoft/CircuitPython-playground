@@ -1,0 +1,14 @@
+[
+    {
+        "path": b"\\\\?\\HID#VID_04D8&PID_00DD&MI_02#9&2d31cb3&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}",
+        "vendor_id": 1240,
+        "product_id": 221,
+        "serial_number": "",
+        "release_number": 256,
+        "manufacturer_string": "Microchip Technology Inc.",
+        "product_string": "MCP2221 USB-I2C/UART Combo",
+        "usage_page": 65280,
+        "usage": 1,
+        "interface_number": 2
+    }
+]
