@@ -27,10 +27,12 @@ import adafruit_character_lcd.character_lcd_rgb_i2c as character_lcd
 import time
 
 # verify should = 1
-if os.environ["BLINKA_MCP2221"] is not 1:
-    print("**** ABORT! BLINKA_MCP2221 not set")
-else:
+try:
+    os.environ["BLINKA_MCP2221"]
     print("BLINKA_MCP2221 set correctly.  Well Done!")
+except ValueError:
+    print("**** ABORT! BLINKA_MCP2221 not set")
+    exit
 # describe the boarfd
 # dir(board)
 # prints the api for the board
@@ -42,21 +44,27 @@ print(hid.enumerate())
 device = hid.device()
 device.open(0x04D8, 0x00DD)
 
+start_connect = time.perf_counter()
 # Modify this if you have a different sized Character LCD
 lcd_columns = 16
 lcd_rows = 2
 # Initialise I2C bus.
 i2c = board.I2C()
+start_connect = time.perf_counter()
 # Point the driver at the bus / device
 lcd = character_lcd.Character_LCD_RGB_I2C(i2c, lcd_columns, lcd_rows)
+end_connect = time.perf_counter()
+print("conect time: " + str(end_connect - start_connect))
 
 # I have the RGB backlit Adafruit device
 lcd.clear()
 # Set LCD color to red
 lcd.color = [100, 0, 0]
-time.sleep(1)
 # Print two line message
+start_hello = time.perf_counter()
 lcd.message = "Hello\nCircuitPython"
+end_hello = time.perf_counter()
+print("draw hello time: " + str(end_hello - start_hello))
 # make cursor blink
 lcd.blink = True
 lcd.clear()
