@@ -1,8 +1,8 @@
-# setting this up
+# setting up windows environment
 # pip3 install hdapi
 # pip3 install adafruit-blinka
 # pip3 install adafruit-circuitpython-charlcd
-
+#
 # MANDATORY
 #   Linux set BLINKA_MCP2221=1
 #   Powershell $env:BLINKA_MCP2221=1
@@ -13,6 +13,7 @@
 # https://cdn-learn.adafruit.com/downloads/pdf/adafruit-16x2-character-lcd-plus-keypad-for-raspberry-pi.pdf
 # https://docs.circuitpython.org/projects/charlcd/en/latest/api.html
 # https://learn.sparkfun.com/tutorials/raspberry-gpio/gpio-pinout
+#
 # starting on the end near the edge of the board
 # Pin 02 exterior line - 5v corner   outside edge
 # Pin 04 exterior line - skip        outside edge
@@ -33,7 +34,7 @@ try:
 except ValueError:
     print("**** ABORT! BLINKA_MCP2221 not set")
     exit
-# describe the boarfd
+# describe the board
 # dir(board)
 # prints the api for the board
 # help(board)
