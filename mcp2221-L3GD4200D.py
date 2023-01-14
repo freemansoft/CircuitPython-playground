@@ -69,6 +69,7 @@ print("Snapshot of Angular Velocity (rad/s): {}".format(gyro.gyro))
 print("ending run [", run_count, "]... ")
 
 print("Exit repl to terminate")
+
 while True:
     print("Angular Velocity (rad/s): {}".format(gyro.gyro))
     time.sleep(1)
