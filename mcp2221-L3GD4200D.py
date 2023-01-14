@@ -40,6 +40,7 @@ except ValueError:
 # This actually returns a list object
 print(hid.enumerate())
 device = hid.device()
+# the IDs for the Adafruit msp2221
 device.open(0x04D8, 0x00DD)
 
 # Modify this if you have a different sized Character LCD
