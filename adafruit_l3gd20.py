@@ -1,7 +1,6 @@
 #
-#  This is EXACTLY
-#
-#
+#  This is EXACTLY adafruit file
+#  EXCEPT that it adds the L3G4200D device id
 #
 
 # SPDX-FileCopyrightText: 2018 Michael McWethy for Adafruit Industries
