@@ -1,6 +1,8 @@
 # CircuitPython-playground
 
 ## 5110 Display
+Python code that should work on many different devices 
+
 * 5110_ip_address_demo.py
 * https://joe.blog.freemansoft.com/2023/01/shrinking-ip-address-to-fit-on-pcd8544.html https://github.com/freemansoft/CircuitPython-playground/blob/main/5110_ip_address_demo.py
 
@@ -15,5 +17,4 @@ Assumes
 * Using an L3G4200D or one of the L3GD20 accelerometer on I2C
 * Have installed the correct libraries from above
 
-## Local library file
-`adafruit_l3gd20.py` is a cloned copy of the official driver and has been to support the L3G4200D
+`adafruit_l3gd20.py` is a cloned copy of the official driver and has been updated to recognize the L3G4200D device identifier
