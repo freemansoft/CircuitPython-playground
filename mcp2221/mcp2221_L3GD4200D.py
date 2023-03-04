@@ -31,6 +31,7 @@ try:
 except ValueError:
     print("**** ABORT! BLINKA_MCP2221 not set")
     exit
+# a bunch of sanity checks
 # describe the board
 # dir(board)
 # prints the api for the board
@@ -40,6 +41,7 @@ except ValueError:
 # This actually returns a list object
 print(hid.enumerate())
 device = hid.device()
+# Open the device.  No error means we can talk to it
 # the IDs for the Adafruit msp2221
 device.open(0x04D8, 0x00DD)
 
