@@ -1,13 +1,16 @@
-# adafruit_pcd8533.mpy and adafruit_framebuf.mpy must be copied to /lib
-# must download font5x8.bin from https://github.com/adafruit/Adafruit_CircuitPython_framebuf/blob/main/examples/font5x8.bin to the /
+# Libraries needed that must be copied to /lib
+#     adafruit_pcd8533.mpy
+#     adafruit_framebuf.mpy
+# Fonts that must be copied to the root or the same directory as the script
+#     font5x8.bin must be acquired from from https://github.com/adafruit/Adafruit_CircuitPython_framebuf/blob/main/examples/font5x8.bin
+#
+# test program without the network portion
 import adafruit_pcd8544
 
 import board
 import busio
 import digitalio
 import time
-import wifi
-import ipaddress
 
 print("Hello World!")
 
@@ -47,54 +50,45 @@ def display_ip_compressed(display, our_address, y_position):
 
 
 #################################################################
-# D0 is LED
-# D1 not used
-# D2 not used
-# D3 not used
-# D4 not used
-# D5 = CE
-# D6 = DC
-# D8 = SCK = CLK
-# D9 = RST
-# D10 = MOSI = D In
+# Pico Pins - SPI0
+# GP20 -              = RESET
+# GP19 - SPI0 TX MOSI = D IN
+# GP18 - SPI0 SCK     = CLK
+# GP17 - SPI0 CSn     = CE
+# GP16 - SPI0 RX      = DC
+
+DISPLAY_RESET = board.GP20  # pin26
+DISPLAY_DC = board.GP16  # pin 21
+DISPLAY_CS = board.GP17  # pin 22
+SCK = board.GP18  # pin 24
+MOSI = board.GP19  # pin 25
+
+
 #################################################################
 
-# Show we're up using status light on D0
-led = digitalio.DigitalInOut(board.D0)
+# Show we're up using status light on LED
+led = digitalio.DigitalInOut(board.LED)
 led.direction = digitalio.Direction.OUTPUT
+led.value = 0
 for i in range(1, 4):
     led.value = not led.value
     time.sleep(0.1)
     led.value = not led.value
     time.sleep(0.1)
 
-print("Available WiFi networks:")
-for network in wifi.radio.start_scanning_networks():
-    print(
-        "\t%s\t\tRSSI: %d\tChannel: %d"
-        % (str(network.ssid, "utf-8"), network.rssi, network.channel)
-    )
-wifi.radio.stop_scanning_networks()
-
 # LCD setup
-spi = busio.SPI(board.SCK, MOSI=board.MOSI)
-dc = digitalio.DigitalInOut(board.D6)  # data/command
-cs = digitalio.DigitalInOut(board.D5)  # Chip select
-reset = digitalio.DigitalInOut(board.D9)  # reset
+spi = busio.SPI(SCK, MOSI=MOSI)
+dc = digitalio.DigitalInOut(DISPLAY_DC)  # data/command
+cs = digitalio.DigitalInOut(DISPLAY_CS)  # Chip select
+reset = digitalio.DigitalInOut(DISPLAY_RESET)  # reset
 display = adafruit_pcd8544.PCD8544(spi, dc, cs, reset)
 display.contrast = 60
 display.fill(0)
 
 # compress the width needed by putting a blank space instead of "."
 display.text("IP Address", 0, char_height * 0, 1)
-# can be too wide for screen
-our_address = wifi.radio.ipv4_address
+our_address = "192.168.100.101"
 print("IP Address: %s" % our_address)
 display_ip_compressed(display, our_address, char_height * 1)
+display.text(str(our_address), 0, char_height * 2, 1)
 display.show()
-
-ipv4 = ipaddress.ip_address("8.8.4.4")
-
-while True:
-    time.sleep(30)
-    print("Ping google.com: %f ms" % (wifi.radio.ping(ipv4) * 1000))

@@ -3,8 +3,10 @@
 ## 5110 Display
 Python code that should work on many different devices.
 
-* `5110_ip_address_demo.py` lists a machine's address on a 16x2 LCD compressing the ":" characters to insure it fits
-* https://joe.blog.freemansoft.com/2023/01/shrinking-ip-address-to-fit-on-pcd8544.html https://github.com/freemansoft/CircuitPython-playground/blob/main/5110_ip_address_demo.py
+* `5110_ip_address_demo_esp32c3.py` lists a machine's address on a 16x2 LCD compressing the ":" characters to ensure it fits after joining to a network
+* `5110_ip_address_demo_pico.py`    lists a machine's address on a 16x2 LCD compressing the ":" characters to ensure it fits
+
+Behavior described at https://joe.blog.freemansoft.com/2023/01/shrinking-ip-address-to-fit-on-pcd8544.html https://github.com/freemansoft/CircuitPython-playground/blob/main/5110_ip_address_demo.py
 
 ## Accelerometer
 
