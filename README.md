@@ -1,7 +1,10 @@
 # CircuitPython-playground
 
+## TODO
+* Bring the esp32 version of the 5110 program up to date with the Pico version
+
 ## 5110 Display
-Python code that should work on many different devices.
+Python code that should works on different devices. Save the programs under the name `code.py` to auto run on save
 
 * `5110_ip_address_demo_esp32c3.py` lists a machine's address on a 16x2 LCD compressing the ":" characters to ensure it fits after joining to a network
 * `5110_ip_address_demo_pico.py`    lists a machine's address on a 16x2 LCD compressing the ":" characters to ensure it fits

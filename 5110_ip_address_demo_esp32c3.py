@@ -16,14 +16,14 @@ import ipaddress
 
 print("Hello World!")
 
-# 5x8 - font
-# 6x10 - pad one on the side and two on the bottom
-# 5 lines of text is 50 pixels or 48 vertical pixels because we don't need to pad the last row
-char_width = 6
-char_height = 10
 #  TODO do font size math to make this work on other displays
-def display_ip_compressed(display, our_address, y_position):
+def display_ip_compressed(
+    display, our_address, y_position, char_width=6, char_height=10
+):
     """
+    5x8 - font
+    6x10 - pad one on the side and two on the bottom
+    5 lines of text is 50 pixels or 48 vertical pixels because we don't need to pad the last row
     writes out an IP address replacing 6 pixels wide '.' character with 4p pixels wide 2x2 square
     Nokia display is 84x48 = 14 characters wide = 84 pixels
     An IP address can be 3*4+3 = 15 characters
