@@ -43,6 +43,7 @@ Assumes
 # app specific libraries
 pip3 install adafruit-circuitpython-charlcd
 ```
+Verify env by running or pasting `blinka_mcp222_env_check.py`
 Run or open a python3 REPL and paste the contents of `mcp2221_lcd16x2.py`
 
 ### L3GD4200D via hacked adafruit_L3GD20I driver
@@ -71,6 +72,8 @@ Thse programs are intended to run from Blinka on a PC (Windows or Mac)
 Run `python3` on the PC to bring up the REPL and then paste the the rest of the .py file
 
 ### SPI OLED
+Verify env by running or pasting `blinka_u2if_env_check.py`
+
 **THIS IS BROKEN and DOES NOT DISPLAY CORRECTLY**
 
 ### Setup

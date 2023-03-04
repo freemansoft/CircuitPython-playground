@@ -68,6 +68,7 @@ def display_ip_compressed(
 # Show we're up using status light on D0
 led = digitalio.DigitalInOut(board.D0)
 led.direction = digitalio.Direction.OUTPUT
+led.value = 0
 for i in range(1, 4):
     led.value = not led.value
     time.sleep(0.1)

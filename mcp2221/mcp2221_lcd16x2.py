@@ -21,29 +21,9 @@
 # Pin 01 interior line corner - skip
 # Pin 03 interior line SDA
 # Pin 05 interior line SLC
-import os
 import board
-import hid
 import adafruit_character_lcd.character_lcd_rgb_i2c as character_lcd
 import time
-
-# verify should = 1
-try:
-    os.environ["BLINKA_MCP2221"]
-    print("BLINKA_MCP2221 set correctly.  Well Done!")
-except ValueError:
-    print("**** ABORT! BLINKA_MCP2221 not set")
-    exit
-# describe the board
-# dir(board)
-# prints the api for the board
-# help(board)
-
-# Should really verify device
-# This actually returns a list object
-print(hid.enumerate())
-device = hid.device()
-device.open(0x04D8, 0x00DD)
 
 start_connect = time.perf_counter()
 # Modify this if you have a different sized Character LCD
