@@ -13,7 +13,7 @@ Behavior described at https://joe.blog.freemansoft.com/2023/01/shrinking-ip-addr
 
 ## Accelerometer
 
-`adafruit_l3gd20.py` is a cloned copy of the official driver and has been updated to recognize the L3G4200D device identifier.  It is required in /lib for the MCP demo.
+`lib/adafruit_l3gd20.py` is a cloned copy of the official driver and has been updated to recognize the L3G4200D device identifier.  It is required in /lib for the MCP demo.
 
 ## Blinka Setup
 Host Python Setup
