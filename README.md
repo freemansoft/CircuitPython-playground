@@ -1,5 +1,10 @@
 # CircuitPython-playground
 
+## VS Code settings
+1. `ctrl-shift-p` to bring up preferneces
+1. Search for `editor.trim`
+1. Uncheck `editor: Trim Auto Whitespace` in preferences
+
 ## TODO
 * Bring the esp32 version of the 5110 program up to date with the Pico version
 
@@ -24,9 +29,10 @@ pip3 install adafruit-blinka
 ```
 
 ## MCP2221
-Thse programs are intended to run from Blinka on a PC (Windows or Mac) using an MCP2221 as a prot expander
+Thse programs are intended to run from Blinka on a PC (Windows or Mac) using an MCP2221 as a prot expander.
 
-*Mandatory* environment configuration that must be done before running host Python
+*Mandatory Configuration*
+Environment configuration that must be done before running host Python `python3`
 * Linux `set BLINKA_MCP2221=1`
 * Powershell `$env:BLINKA_MCP2221=1`
 
@@ -60,23 +66,27 @@ Assumes
 
 Run or open a python3 REPL and paste the contents of `mcp2221_L3GD4200D.py`
 
-## RP2040 running U2IF
-These programs are intended to run from Blinka on a PC (Windows or Mac) using a Pico with u2if firmware as a port expander
+## RP2040 running U2IF - Never got displays to work
+
+**I never got any of the displays to work correclty with the u2if firmware**
+
+These programs are intended to run from Blinka on a PC (Windows or Mac) using a RP2040 Pico as a port expander.  The RP2040 should be running [u2if firmware](https://github.com/execuc/u2if).
 
 Thse programs are intended to run from Blinka on a PC (Windows or Mac)
 
-*Mandatory* environment configuration that must be done before running host Python
+*Mandatory Configuration*
+Environment configuration that must be done before running host Python `python3`
 * Linux `set BLINKA_U2IF=1`
 * Powershell `$env:BLINKA_U2IF=1`
 
 Run `python3` on the PC to bring up the REPL and then paste the the rest of the .py file
 
 ### SPI OLED
-Verify env by running or pasting `blinka_u2if_env_check.py`
+Verify the environment by running or pasting `blinka_u2if_env_check.py`
 
-**THIS IS BROKEN and DOES NOT DISPLAY CORRECTLY**
+**BROKEN: Does not display correctly** I think it is because of the way the Adafruit redirects the REPL
 
-### Setup
+**Setup**
 ```bash
 # app specific libraries
 pip3 install adafruit-blinka-displayio
@@ -86,6 +96,12 @@ pip3 install adafruit-circuitpython-displayio-sh1106
 pip3 install adafruit-circuitpython-display-text
 ```
 
+### Noki1 5110 PCD8544
+Verify the environment by running or pasting `blinka_u2if_env_check.py`
+
+**BROKEN: Displays nothing**
+
+See the setup instructions in the pico demo file
 
 
 

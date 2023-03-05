@@ -58,3 +58,4 @@ device = hid.device()
 # device.open(0x04D8, 0x00DD)
 # the  IDs for the Pico with u2if firmware
 device.open(0xCAFE, 0x4005)
+print("We found the device if there was no error")

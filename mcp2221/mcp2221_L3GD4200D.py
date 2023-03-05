@@ -19,6 +19,8 @@
 # Assumes SDA and SCL are the only things hooked up
 
 import board
+
+# this may need to be lib.adafruit_l3gd20 because the library is now in lib
 import adafruit_l3gd20
 import time
 

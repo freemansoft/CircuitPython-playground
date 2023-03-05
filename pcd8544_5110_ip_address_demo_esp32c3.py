@@ -1,10 +1,11 @@
-# Libraries needed that must be copied to /lib
-#     adafruit_pcd8533.mpy
-#     adafruit_framebuf.mpy
-# Fonts that must be copied to the root or the same directory as the script
-#     font5x8.bin must be acquired from from https://github.com/adafruit/Adafruit_CircuitPython_framebuf/blob/main/examples/font5x8.bin
-#
-# See below for pin assignments
+"""
+Libraries needed that must be copied to /lib
+    adafruit_pcd8544.mpy
+    adafruit_framebuf.mpy
+Fonts that must be copied to the root or the same directory as the script
+    font5x8.bin must be acquired from from https://github.com/adafruit/Adafruit_CircuitPython_framebuf/blob/main/examples/font5x8.bin
+See below for pin assignments
+"""
 import adafruit_pcd8544
 
 import board

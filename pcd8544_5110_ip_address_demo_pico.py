@@ -1,8 +1,19 @@
-# Libraries needed that must be copied to /lib
-#     adafruit_pcd8533.mpy
-#     adafruit_framebuf.mpy
-# Fonts that must be copied to the root or the same directory as the script
-#     font5x8.bin must be acquired from from https://github.com/adafruit/Adafruit_CircuitPython_framebuf/blob/main/examples/font5x8.bin
+"""
+Libraries needed that must be copied to /lib
+    adafruit_pcd8544.mpy
+    adafruit_framebuf.mpy
+For Blinka Installs
+    pip3 install adafruit-blinka
+    pip3 install adafruit-circuitpython-framebuf
+    pip3 install adafruit-circuitpython-pcd8544
+Fonts that must be copied to the root or the same directory as the script
+    font5x8.bin must be acquired from from https://github.com/adafruit/Adafruit_CircuitPython_framebuf/blob/main/examples/font5x8.bin
+See below for pin assignments
+
+import pcd8544_5110_ip_address_demo_pico
+from pcd8544_5110_ip_address_demo_pico import *
+demo_pico()
+"""
 
 # test program without the network portion
 import adafruit_pcd8544
@@ -35,14 +46,12 @@ def display_ip_compressed(display, our_address, text_row, char_width=6, char_hei
     display.rect(
         (char_width * 9) + (4 * 2) + 1, y_position + (char_height - 5), 2, 2, 1
     )
-
     if our_address:
         our_octets = str(our_address).split(".")
         display.text(our_octets[0], (char_width * 0) + (4 * 0), y_position, 1)
         display.text(our_octets[1], (char_width * 3) + (4 * 1), y_position, 1)
         display.text(our_octets[2], (char_width * 6) + (4 * 2), y_position, 1)
         display.text(our_octets[3], (char_width * 9) + (4 * 3), y_position, 1)
-
     display.show()
 
 
@@ -71,14 +80,18 @@ def demo_pico():
     #################################################################
 
     # Show we're up using status light on LED
-    led = digitalio.DigitalInOut(board.LED)
-    led.direction = digitalio.Direction.OUTPUT
-    led.value = 0
-    for i in range(1, 4):
-        led.value = not led.value
-        time.sleep(0.1)
-        led.value = not led.value
-        time.sleep(0.1)
+    try:
+        led = digitalio.DigitalInOut(board.LED)
+        led.direction = digitalio.Direction.OUTPUT
+        led.value = 0
+        for i in range(1, 4):
+            led.value = not led.value
+            time.sleep(0.1)
+            led.value = not led.value
+            time.sleep(0.1)
+    except AttributeError:
+        # u2if uses the onboard LED for its own status purposes
+        pass  # u2if doesnt' support the led
 
     # LCD setup
     spi = busio.SPI(SCK, MOSI=MOSI)

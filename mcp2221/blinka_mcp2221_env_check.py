@@ -37,3 +37,4 @@ device = hid.device()
 # Open the device.  No error means we can talk to it
 # the IDs for the Adafruit msp2221
 device.open(0x04D8, 0x00DD)
+print("We found the device if there was no error")

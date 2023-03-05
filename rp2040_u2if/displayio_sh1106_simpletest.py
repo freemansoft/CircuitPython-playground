@@ -6,6 +6,7 @@
 #   /lib/adafruit_displayio_sh1106.py
 #   /lib/adafruit_display_text/*
 # when running on a PC with Blinka
+#   pip3 install adafruit-blinka
 #   pip3 install adafruit_displayio_sh1106
 #   pip3 install adafruit_display_text
 
