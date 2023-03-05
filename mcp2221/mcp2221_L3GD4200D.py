@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2022 Joe Freeman joe@freemansoft.com
+#
+# SPDX-License-Identifier: MIT
+#
 # WARNING
 #   This relies on the hacked adafruit L3GD20 library included in this project.
 #   The only change is an additional valid hardware id for the older L3GD4200
