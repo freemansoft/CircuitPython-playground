@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 #
 # setting up windows environment
-# pip3 install hdapi
+# pip3 install hidapi
 # pip3 install adafruit-blinka
 # pip3 install adafruit-circuitpython-charlcd
 #
@@ -25,9 +25,10 @@
 # Pin 01 interior line corner - skip
 # Pin 03 interior line SDA
 # Pin 05 interior line SLC
-import board
-import adafruit_character_lcd.character_lcd_rgb_i2c as character_lcd
 import time
+
+import adafruit_character_lcd.character_lcd_rgb_i2c as character_lcd
+import board
 
 start_connect = time.perf_counter()
 # Modify this if you have a different sized Character LCD

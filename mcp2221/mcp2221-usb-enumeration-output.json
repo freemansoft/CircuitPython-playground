@@ -1,14 +1,54 @@
 [
-    {
-        "path": b"\\\\?\\HID#VID_04D8&PID_00DD&MI_02#9&2d31cb3&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}",
-        "vendor_id": 1240,
-        "product_id": 221,
-        "serial_number": "",
-        "release_number": 256,
-        "manufacturer_string": "Microchip Technology Inc.",
-        "product_string": "MCP2221 USB-I2C/UART Combo",
-        "usage_page": 65280,
-        "usage": 1,
-        "interface_number": 2
-    }
+  {
+    "path": "\\\\?\\HID#VID_239A&PID_8046&MI_03&Col02#9&121b8ac&0&0001#{4d1e55b2-f16f-11cf-88cb-001111000030}",
+    "vendor_id": 9114,
+    "product_id": 32838,
+    "serial_number": "BB7384EC8CE1920C",
+    "release_number": 256,
+    "manufacturer_string": "Adafruit Industries LLC",
+    "product_string": "CircuitPython HID",
+    "usage_page": 1,
+    "usage": 2,
+    "interface_number": 3,
+    "bus_type": 1
+  },
+  {
+    "path": "\\\\?\\HID#VID_239A&PID_8046&MI_03&Col03#9&121b8ac&0&0002#{4d1e55b2-f16f-11cf-88cb-001111000030}",
+    "vendor_id": 9114,
+    "product_id": 32838,
+    "serial_number": "BB7384EC8CE1920C",
+    "release_number": 256,
+    "manufacturer_string": "Adafruit Industries LLC",
+    "product_string": "CircuitPython HID",
+    "usage_page": 12,
+    "usage": 1,
+    "interface_number": 3,
+    "bus_type": 1
+  },
+  {
+    "path": "\\\\?\\HID#VID_239A&PID_8046&MI_03&Col01#9&121b8ac&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}\\KBD",
+    "vendor_id": 9114,
+    "product_id": 32838,
+    "serial_number": "BB7384EC8CE1920C",
+    "release_number": 256,
+    "manufacturer_string": "Adafruit Industries LLC",
+    "product_string": "CircuitPython HID",
+    "usage_page": 1,
+    "usage": 6,
+    "interface_number": 3,
+    "bus_type": 1
+  },
+  {
+    "path": "\\\\?\\HID#VID_04D8&PID_00DD&MI_02#9&12d0a60a&0&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}",
+    "vendor_id": 1240,
+    "product_id": 221,
+    "serial_number": "",
+    "release_number": 256,
+    "manufacturer_string": "Microchip Technology Inc.",
+    "product_string": "MCP2221 USB-I2C/UART Combo",
+    "usage_page": 65280,
+    "usage": 1,
+    "interface_number": 2,
+    "bus_type": 1
+  }
 ]
