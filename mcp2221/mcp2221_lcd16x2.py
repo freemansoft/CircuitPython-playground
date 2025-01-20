@@ -18,13 +18,27 @@
 # https://docs.circuitpython.org/projects/charlcd/en/latest/api.html
 # https://learn.sparkfun.com/tutorials/raspberry-gpio/gpio-pinout
 #
-# starting on the end near the edge of the board
+# starting on the end near the edge of the LCD Raspberry Pi Connector
 # Pin 02 exterior line - 5v corner   outside edge
 # Pin 04 exterior line - skip        outside edge
 # Pin 06 exterior line - GND 3rd pin outside edge
 # Pin 01 interior line corner - skip
 # Pin 03 interior line SDA
-# Pin 05 interior line SLC
+# Pin 05 interior line SCL
+#
+# This will work also with the Pico U2IF
+# The I2C pins require pullups.  I used 1.8K resistors
+#
+# Pico U2IF pinout
+# The Pico U2IF has 2 I2C ports
+#
+#   Linux set BLINKA_U2IF=1
+#   Powershell $env:BLINKA_U2IF=1
+# SDA0 - I2C port 0 data   - GP4 Pico pin 6
+# SCL0 - I2C port 0 clock  - GP5 Pico pin 7
+# SDA1 - I2C port 1 data   - GP14 Pico pin 19
+# SCL1 - I2C port 1 clock  - GP15 Pico pin 20
+#
 import time
 
 import adafruit_character_lcd.character_lcd_rgb_i2c as character_lcd

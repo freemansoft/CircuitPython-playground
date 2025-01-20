@@ -29,7 +29,7 @@ Behavior described at
 
 `lib/adafruit_l3gd20.py` is a cloned copy of the official driver and has been updated to recognize the L3G4200D device identifier.  It is required in /lib for the MCP demo.
 
-## Blinka Setup
+## Host Python / Blinka software installation for the MCP2221
 
 Blinka is a set of CircuitPython libraries that lets you run CircuitPython on a laptop or desktop that communicates over a link to a CircuitPython device
 
@@ -75,8 +75,12 @@ Assumes
 
 #### Setup
 
+We need to add the LCD driver to the python libraries we installed on the host in the previous step
+
 ```bash
-# app specific libraries
+pip3 install --upgrade hidapi
+pip3 install --upgrade adafruit-blinka
+# Device specific libraries
 pip3 install adafruit-circuitpython-charlcd
 ```
 
@@ -100,21 +104,34 @@ This assumes
 
 Run or open a python3 REPL and paste the contents of `mcp2221_L3GD4200D.py`
 
-## RP2040 running U2IF - Never got displays to work
-
-**I never got any of the OLED or Nokia displays to work correclty with the u2if firmware**
+## RP2040 running U2IF
 
 These programs are intended to run from Blinka on a PC (Windows or Mac) using a RP2040 Pico as a port expander.  The RP2040 should be running [u2if firmware](https://github.com/execuc/u2if).
 
-Thse programs are intended to run from Blinka on a PC (Windows or Mac)
+### Host software installation to communicate with the RP2040 U2IF
 
-*Mandatory Configuration*
+This is the same installation as the MCP2221 instructions above
+
+```bash
+# setting up windows environment for Blinka
+pip3 install hidapi
+pip3 install adafruit-blinka
+pip3 install adafruit-circuitpython-charlcd
+```
+
+
+### RP2040 U2IF Mandatory Configuration
+
 Environment configuration that must be done before running host Python `python3`
 
 * Linux `set BLINKA_U2IF=1`
 * Powershell `$env:BLINKA_U2IF=1`
 
 Run `python3` on the PC to bring up the REPL and then paste the the rest of the .py file
+
+### LCD 16X2 Pullup Resistors
+
+The Pico does not come with the same I2C pin pullup resistors as the Raspberry Pi that my I2C LCD was designed for.  This means we need to add pullup resistors.  I added 1.8K resistors from the SDA/SCL pins to +5V to get the Pi Plate to work
 
 ### SPI OLED
 
@@ -137,9 +154,6 @@ pip3 install adafruit-circuitpython-display-text
 
 Verify the environment by running or pasting `blinka_u2if_env_check.py`
 
-**BROKEN: Displays nothing**
+**Displays nothing** This could be a pullup resistor issue also
 
 See the setup instructions in the pico demo file
-
-
-
