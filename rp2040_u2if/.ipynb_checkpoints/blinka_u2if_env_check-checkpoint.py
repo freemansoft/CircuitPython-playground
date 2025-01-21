@@ -42,7 +42,7 @@ import hid
 #   '__blinka__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__repo__', '__spec__', '__version__',
 #   'ap_board', 'board_id', 'detector', 'pin', 'sys'
 #    ]
-dir(o=board)
+dir(board)
 # prints the api for the board
 help(board)
 
