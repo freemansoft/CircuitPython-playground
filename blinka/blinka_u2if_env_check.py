@@ -2,9 +2,12 @@
 #
 # SPDX-License-Identifier: MIT
 #
-# Simple board and env check
-# Extracted from other programs
+# Simple board and env check hard coded to open an RP2040 Pico U2IF
 #
+# Setting up windows environment
+# pip3 install hdapi
+# pip3 install adafruit-blinka
+
 # MANDATORY
 #   Linux set BLINKA_MCP2221=1
 #   Powershell $env:BLINKA_MCP2221=1
@@ -28,7 +31,6 @@ except ValueError:
     exit
 
 import board
-import busio
 import hid
 
 # a bunch of sanity checks
@@ -59,5 +61,4 @@ device = hid.device()
 # device.open(0x04D8, 0x00DD)
 # the  IDs for the Pico with u2if firmware
 device.open(0xCAFE, 0x4005)
-# Simple check to verify BLINKA environment and other stuff
 print("We found the device if there was no error")

@@ -2,10 +2,11 @@
 #
 # SPDX-License-Identifier: MIT
 #
-# setting up windows environment
+# Simple board and env check hard coded to open an RP2040 Pico U2IF
+#
+# Setting up windows environment
 # pip3 install hdapi
 # pip3 install adafruit-blinka
-# The adafruit library is overwritten by the local file with the same name
 #
 # MANDATORY
 #   Linux set BLINKA_MCP2221=1
@@ -23,16 +24,20 @@
 
 import os
 
-import board
-import hid
-
 # verify should = 1
 try:
     os.environ["BLINKA_MCP2221"]
     print("BLINKA_MCP2221 set correctly.  Well Done!")
+except KeyError:
+    print("**** ABORT! BLINKA_MCP2221 not set")
+    exit
 except ValueError:
     print("**** ABORT! BLINKA_MCP2221 not set")
     exit
+
+import board
+import hid
+
 # a bunch of sanity checks
 # describe the board
 dir(board)
@@ -46,4 +51,6 @@ device = hid.device()
 # Open the device.  No error means we can talk to it
 # the IDs for the Adafruit msp2221
 device.open(0x04D8, 0x00DD)
+# the  IDs for the Pico with u2if firmware
+# device.open(0xCAFE, 0x4005)
 print("We found the device if there was no error")

@@ -4,6 +4,10 @@ These programs run on a Mac or PC and remotely control an RP2040 running the U2I
 
 These will probably work correctly with the Adafruit MCP2221A or FTD232 breakout boards with different env variables
 
+## MCP2221 note
+
+The MCP2221 can act as an extension of the PC or Mac.  The MCP2221 breakout board doesn't support on device software.
+
 ## Connections for I2C
 
 Pico I2C pins require pullups for PiHat LCD.  I used 1.8K resistors
@@ -12,10 +16,10 @@ Pico U2IF pinout. The Pico U2IF has 2 I2C ports
 
 Blinka environment variablesvalues
 
-| Shell      | Env Command          |
-| ---------- | -------------------- |
-| Linux      | `set BLINKA_U2IF=1`  |
-| Powershell | `$env:BLINKA_U2IF=1` |
+| Shell      | MCP2221 Env Command | U2IF Env Command     |
+| ---------- | ------------------- | -------------------- |
+| Linux      | `set MCP2221=1`     | `set BLINKA_U2IF=1`  |
+| Powershell | `$env:MCP2221=1`    | `$env:BLINKA_U2IF=1` |
 
 I2C pins with U2IF
 

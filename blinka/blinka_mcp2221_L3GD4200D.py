@@ -3,9 +3,9 @@
 # SPDX-License-Identifier: MIT
 #
 # WARNING
-#   This relies on the hacked adafruit L3GD20 library included in this project.
+#   This relies on the adafruit L3GD20 library hacked to include this chip ID
 #   The only change is an additional valid hardware id for the older L3GD4200
-#   Note that you get the local if you import and not the one that doesn't work for the L3GD4200
+#   You get the local if you import and not the one that doesn't work for the L3GD4200
 #
 # setting up windows environment
 # pip3 install hdapi
@@ -29,9 +29,10 @@
 
 import time
 
-# this may need to be lib.adafruit_l3gd20 because the library is now in lib
-import adafruit_l3gd20
 import board
+
+# Use the library version hacked to support this chip id
+import lib.adafruit_l3gd20_hacked as adafruit_l3gd20
 
 # Modify this if you have a different sized Character LCD
 # Initialise I2C bus.
@@ -59,12 +60,12 @@ print(
     "take " + str(run_count) + " readings " + str(post_run - pre_run) + " secs"
 )
 # can be commented out
-print(f"Snapshot of Angular Velocity (rad/s): {gyro.gyro}")
+print(f"Snapshot of Angular Velocity (rad/s): {gyro.gyro_raw} - {gyro.gyro}")
 
 print("ending run [", run_count, "]... ")
 
 print("Exit repl to terminate")
 
 while True:
-    print(f"Angular Velocity (rad/s): {gyro.gyro}")
+    print(f"Angular Velocity (rad/s): {gyro.gyro_raw} - {gyro.gyro}")
     time.sleep(1)

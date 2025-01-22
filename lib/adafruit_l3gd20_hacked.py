@@ -28,14 +28,15 @@ Implementation Notes
 from math import radians
 from struct import unpack
 
-from micropython import const
 from adafruit_register.i2c_struct import Struct
+from micropython import const
 
 try:
     from typing import Tuple
-    from digitalio import DigitalInOut
+
     from busio import I2C, SPI
     from circuitpython_typing import WriteableBuffer
+    from digitalio import DigitalInOut
 except ImportError:
     pass
 
@@ -90,12 +91,20 @@ class L3GD20:
         self, rng: int = L3DS20_RANGE_250DPS, rate: int = L3DS20_RATE_100HZ
     ) -> None:
         chip_id = self.read_register(_ID_REGISTER)
-        if chip_id not in (_L3GD20_CHIP_ID, _L3GD20H_CHIP_ID, _L3GD4200D_CHIP_ID):
+        if chip_id not in (
+            _L3GD20_CHIP_ID,
+            _L3GD20H_CHIP_ID,
+            _L3GD4200D_CHIP_ID,
+        ):
             raise RuntimeError(
                 f"bad chip id ({chip_id:#x} != {_L3GD20_CHIP_ID:#x} or {_L3GD20H_CHIP_ID:#x} or {_L3GD4200D_CHIP_ID:#x})"
             )
 
-        if rng not in (L3DS20_RANGE_250DPS, L3DS20_RANGE_500DPS, L3DS20_RANGE_2000DPS):
+        if rng not in (
+            L3DS20_RANGE_250DPS,
+            L3DS20_RANGE_500DPS,
+            L3DS20_RANGE_2000DPS,
+        ):
             raise ValueError(
                 "Range value must be one of L3DS20_RANGE_250DPS, "
                 "L3DS20_RANGE_500DPS, or L3DS20_RANGE_2000DPS"
@@ -250,7 +259,9 @@ class L3GD20_I2C(L3GD20):
         """
         self.buffer[0] = register
         with self.i2c_device as i2c:
-            i2c.write_then_readinto(self.buffer, self.buffer, out_end=1, in_start=1)
+            i2c.write_then_readinto(
+                self.buffer, self.buffer, out_end=1, in_start=1
+            )
         return self.buffer[1]
 
 
