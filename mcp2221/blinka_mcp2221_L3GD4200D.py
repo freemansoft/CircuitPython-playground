@@ -16,26 +16,33 @@
 # MANDATORY
 #   Linux set BLINKA_MCP2221=1
 #   Powershell $env:BLINKA_MCP2221=1
+# or
+#   Linux set BLINKA_U2IF=1
+#   Powershell $env:BLINKA_U2IF=1
+#
+# $env:BLINKA_U2IF=1
 # python3 to bring up the REPL and then paste the the rest of the file
 #
 # https://learn.adafruit.com/adafruit-triple-axis-gyro-breakout/python-circuitpython#
 #
 # Assumes SDA and SCL are the only things hooked up
 
-import board
+import time
 
 # this may need to be lib.adafruit_l3gd20 because the library is now in lib
 import adafruit_l3gd20
-import time
+import board
 
 # Modify this if you have a different sized Character LCD
 # Initialise I2C bus.
 i2c = board.I2C()
 # i2c.scan()
 start_connect = time.perf_counter()
-# L3G4200D dies hear with bad chip id
-# L3G4200D id=0xd3 L3GD20 id=0xd4 L3GD20H id=0xd7
-# Parallax L3G4200D board is at address 105 0x69
+# L3G4200D dies here with bad chip id so we force address
+# L3G4200D id=0xd3
+# L3GD20   id=0xd4
+# L3GD20H  id=0xd7
+# L3G4200D (Parallax board) is at address 0x69 105 in decimal
 gyro = adafruit_l3gd20.L3GD20_I2C(i2c, address=105)
 end_connect = time.perf_counter()
 print("conect time: " + str(end_connect - start_connect))
@@ -48,14 +55,16 @@ for run_num in range(run_count):
     tosser = gyro.gyro
 
 post_run = time.perf_counter()
-print("take " + str(run_count) + " readings " + str(post_run - pre_run) + " secs")
+print(
+    "take " + str(run_count) + " readings " + str(post_run - pre_run) + " secs"
+)
 # can be commented out
-print("Snapshot of Angular Velocity (rad/s): {}".format(gyro.gyro))
+print(f"Snapshot of Angular Velocity (rad/s): {gyro.gyro}")
 
 print("ending run [", run_count, "]... ")
 
 print("Exit repl to terminate")
 
 while True:
-    print("Angular Velocity (rad/s): {}".format(gyro.gyro))
+    print(f"Angular Velocity (rad/s): {gyro.gyro}")
     time.sleep(1)

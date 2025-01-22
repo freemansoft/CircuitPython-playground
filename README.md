@@ -2,6 +2,15 @@
 
 Some of these tools run in Circuit Python on the microcontroller.  Others of these tools run in Python on a PC or Mac and communicate with sensors via an intermediary.
 
+## Directory Structure
+
+The directory structure was created while doing exploration.  The MCP2221 and rp2040 U2IF examples are preobably interchangable across the MCP2221 and RP2040 because they are both `Blinka` compatible. The only difference is the interconnection pin numbers and the environment variable.
+
+| Board       | Linux Environment Command | Powershell Environment Command |
+| ----------- | ------------------------- | ------------------------------ |
+| MCP2221A    | `set BLINKA_MCP2221=1`    | `$env:BLINKA_MCP2221=1`        |
+| RP2040 U2IF | `set BLINKA_U2IF=1`       | `$env:BLINKA_U2IF=1`           |
+
 ## VS Code settings
 
 1. `ctrl-shift-p` to bring up preferneces

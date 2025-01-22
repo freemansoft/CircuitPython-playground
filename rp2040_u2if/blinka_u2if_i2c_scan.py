@@ -1,6 +1,14 @@
 #
 # https://learn.adafruit.com/scanning-i2c-addresses/circuitpython
 # CircuitPython I2C Device Address Scan
+# Based on the above code
+#
+# MANDATORY
+#   Linux set BLINKA_MCP2221=1
+#   Powershell $env:BLINKA_MCP2221=1
+# or
+#   Linux set BLINKA_U2IF=1
+#   Powershell $env:BLINKA_U2IF=1
 
 import time
 
@@ -40,12 +48,19 @@ for name in ALL_I2C:
 # busio.I2C(board.GP15, board.GP14) addresses found: ['0x30', '0x44', '0x53', '0x6a']
 #
 # - 0x30 - magnamometer - MMC5603NJ
+#           pip3 install adafruit-circuitpython-mmc56x3
+#           https://learn.adafruit.com/adafruit-mmc5603-triple-axis-magnetometer/python-circuitpython
 # - 0x44 - temp and humidity - SHT30-DIS
+#          1pip3 install adafruit-circuitpython-sht30d
+#           https://learn.adafruit.com/adafruit-sht31-d-temperature-and-humidity-sensor-breakout/python-circuitpython
 # - 0x53 - optical sensor - LTR-381RGB-01
 # - 0x6a - 6 axis IMU - LSM6DS3TR-C
+#           pip3 install adafruit-circuitpython-lsm6ds
+#           https://learn.adafruit.com/adafruit-lsm6ds3tr-c-6-dof-accel-gyro-imu/python-circuitpython
 #
 # Scan valid busses
-# Can't have any blank lines inside the indentation if you want to paste this into the REPL
+# Can't have any blank lines inside the indentation
+# if you want to paste this into the REPL
 
 if len(found_i2c):
     print("-" * 40)

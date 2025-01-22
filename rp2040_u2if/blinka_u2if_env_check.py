@@ -6,8 +6,12 @@
 # Extracted from other programs
 #
 # MANDATORY
+#   Linux set BLINKA_MCP2221=1
+#   Powershell $env:BLINKA_MCP2221=1
+# or
 #   Linux set BLINKA_U2IF=1
 #   Powershell $env:BLINKA_U2IF=1
+#
 # python3 to bring up the REPL and then paste the the rest of the file
 
 import os
@@ -28,7 +32,7 @@ import busio
 import hid
 
 # a bunch of sanity checks
-# dir(board) returns
+# dir(board) returns the following for a generic Pico RP2040
 # [
 #   'ADC0', 'ADC1',
 #   'GP0',

@@ -10,6 +10,10 @@
 # MANDATORY
 #   Linux set BLINKA_MCP2221=1
 #   Powershell $env:BLINKA_MCP2221=1
+# or
+#   Linux set BLINKA_U2IF=1
+#   Powershell $env:BLINKA_U2IF=1
+#
 # python3 to bring up the REPL and then paste the the rest of the file
 #
 # https://learn.adafruit.com/adafruit-triple-axis-gyro-breakout/python-circuitpython#
@@ -18,6 +22,7 @@
 
 
 import os
+
 import board
 import hid
 

@@ -5,3 +5,5 @@ __pycache__/
 boot.py
 settings.toml
 settings.toml.py
+
+**/.ipynb_checkpoints/

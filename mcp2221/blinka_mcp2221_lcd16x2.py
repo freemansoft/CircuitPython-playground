@@ -10,6 +10,10 @@
 # MANDATORY
 #   Linux set BLINKA_MCP2221=1
 #   Powershell $env:BLINKA_MCP2221=1
+# or
+#   Linux set BLINKA_U2IF=1
+#   Powershell $env:BLINKA_U2IF=1
+#
 # python3 to bring up the REPL and then paste the the rest of the file
 #
 # https://learn.adafruit.com/adafruit-16x2-character-lcd-plus-keypad-for-raspberry-pi/python-usage
@@ -18,7 +22,7 @@
 # https://docs.circuitpython.org/projects/charlcd/en/latest/api.html
 # https://learn.sparkfun.com/tutorials/raspberry-gpio/gpio-pinout
 #
-# starting on the end near the edge of the LCD Raspberry Pi Connector
+# Raspberry Pi Connector starting on the end near the edge of the LCD board
 # Pin 02 exterior line - 5v corner   outside edge
 # Pin 04 exterior line - skip        outside edge
 # Pin 06 exterior line - GND 3rd pin outside edge
@@ -27,17 +31,6 @@
 # Pin 05 interior line SCL
 #
 # This will work also with the Pico U2IF
-# The I2C pins require pullups.  I used 1.8K resistors
-#
-# Pico U2IF pinout
-# The Pico U2IF has 2 I2C ports
-#
-#   Linux set BLINKA_U2IF=1
-#   Powershell $env:BLINKA_U2IF=1
-# SDA0 - I2C port 0 data   - GP4 Pico pin 6
-# SCL0 - I2C port 0 clock  - GP5 Pico pin 7
-# SDA1 - I2C port 1 data   - GP14 Pico pin 19
-# SCL1 - I2C port 1 clock  - GP15 Pico pin 20
 #
 import time
 
