@@ -46,9 +46,9 @@ start_connect = time.perf_counter()
 # L3G4200D (Parallax board) is at address 0x69 105 in decimal
 gyro = adafruit_l3gd20.L3GD20_I2C(i2c, address=105)
 end_connect = time.perf_counter()
-print("conect time: " + str(end_connect - start_connect))
+print("connect time: " + str(end_connect - start_connect))
 
-
+# warm up(?)
 run_count = 500
 print("starting run [", run_count, "]... ")
 pre_run = time.perf_counter()
