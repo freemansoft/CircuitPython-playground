@@ -8,8 +8,8 @@ The directory structure was created while doing exploration.  The MCP2221 and rp
 
 | Board       | Linux Environment Command | Powershell Environment Command |
 | ----------- | ------------------------- | ------------------------------ |
-| MCP2221A    | `set BLINKA_MCP2221=1`    | `$env:BLINKA_MCP2221=1`        |
-| RP2040 U2IF | `set BLINKA_U2IF=1`       | `$env:BLINKA_U2IF=1`           |
+| MCP2221A    | `export BLINKA_MCP2221=1` | `$env:BLINKA_MCP2221=1`        |
+| RP2040 U2IF | `export BLINKA_U2IF=1`    | `$env:BLINKA_U2IF=1`           |
 
 ## VS Code settings
 
@@ -66,7 +66,7 @@ These python programs in `/mcp2221` programs are intended to run using Blinka on
 
 Blinka must be configured to understand the target device. Adafruit Blinka Environment configuration that must be done before running host Python `python3`, before opening the REPL and pasting in the program.
 
-* Linux `set BLINKA_MCP2221=1`
+* Linux `export BLINKA_MCP2221=1`
 * Powershell `$env:BLINKA_MCP2221=1`
 
 ### Running a program
@@ -133,7 +133,7 @@ pip3 install adafruit-circuitpython-charlcd
 
 Environment configuration that must be done before running host Python `python3`
 
-* Linux `set BLINKA_U2IF=1`
+* Linux `export BLINKA_U2IF=1`
 * Powershell `$env:BLINKA_U2IF=1`
 
 Run `python3` on the PC to bring up the REPL and then paste the the rest of the .py file

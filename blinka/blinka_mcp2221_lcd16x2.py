@@ -8,10 +8,10 @@
 # pip3 install adafruit-circuitpython-charlcd
 #
 # MANDATORY
-#   Linux set BLINKA_MCP2221=1
+#   Linux export BLINKA_MCP2221=1
 #   Powershell $env:BLINKA_MCP2221=1
 # or
-#   Linux set BLINKA_U2IF=1
+#   Linux export BLINKA_U2IF=1
 #   Powershell $env:BLINKA_U2IF=1
 #
 # python3 to bring up the REPL and then paste the the rest of the file

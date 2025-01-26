@@ -9,10 +9,10 @@
 # pip3 install adafruit-blinka
 
 # MANDATORY
-#   Linux set BLINKA_MCP2221=1
+#   Linux export BLINKA_MCP2221=1
 #   Powershell $env:BLINKA_MCP2221=1
 # or
-#   Linux set BLINKA_U2IF=1
+#   Linux export BLINKA_U2IF=1
 #   Powershell $env:BLINKA_U2IF=1
 #
 # python3 to bring up the REPL and then paste the the rest of the file
@@ -34,7 +34,8 @@ import board
 import hid
 
 # a bunch of sanity checks
-# dir(board) returns the following for a generic Pico RP2040
+# PICO RP2040
+# dir(board) returns the following
 # [
 #   'ADC0', 'ADC1',
 #   'GP0',
@@ -48,6 +49,23 @@ import hid
 #   '__blinka__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__repo__', '__spec__', '__version__',
 #   'ap_board', 'board_id', 'detector', 'pin', 'sys'
 #    ]
+#
+# KB2040
+# [
+#   'A0', 'A1', 'A2', 'A3',
+#   'BUTTON',
+#   'D0', 'D1', 'D10', 'D11', 'D12', 'D13', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9',
+#   'I2C',
+#   'MISO', 'MOSI',
+#   'NEOPIXEL',
+#   'RX',
+#   'SCL', 'SCLK', 'SDA',
+#   'SPI',
+#   'TX',
+#   '__blinka__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__repo__', '__spec__', '__version__',
+#   'ap_board', 'board_id', 'detector', 'pin', 'sys'
+#   ]
+#
 dir(o=board)
 # prints the api for the board
 help(board)

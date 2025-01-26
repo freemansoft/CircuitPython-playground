@@ -22,7 +22,7 @@ Blinka environment variablesvalues
 
 | Shell      | MCP2221 Env Configuration | U2IF Env Configuration |
 | ---------- | ------------------------- | ---------------------- |
-| Linux      | `set MCP2221=1`           | `set BLINKA_U2IF=1`    |
+| Linux      | `set MCP2221=1`           | `export BLINKA_U2IF=1` |
 | Powershell | `$env:MCP2221=1`          | `$env:BLINKA_U2IF=1`   |
 
 I2C pins with U2IF
