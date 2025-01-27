@@ -1,6 +1,6 @@
 # Blinka on a PC
 
-These programs run on a Mac or PC and remotely control:
+These programs run on a Mac or PC and remotely control peripheral sensors, motors and displays using the following as breakout boards.
 
 * RP2040 running the U2IF firmware.
 * Adafruit MCP2221A breakout
@@ -12,20 +12,20 @@ Board selection is via environment variables
 
 The MCP2221 can act as an extension of the PC or Mac.  The MCP2221 breakout board doesn't support on device software.
 
-## Connections for I2C
+## I2C Connection Notes
 
-Pico I2C pins require pullups for PiHat LCD.  I used 1.8K resistors
+Pico I2C pins require pullups for PiHat LCD. Most of the breakout boards come with resistors installed. The Raspberry Pi comes with resistors for its I2C pins.  This means that boards designed to sit directly on the Raspberry Pi may not have resisotrs and this require them when used with something like the Pico. I used 1.8K resistors
 
-Pico U2IF pinout. The Pico U2IF has 2 I2C ports
+Rasperry Pi Pico U2IF pinout. The Pico U2IF has 2 I2C ports
 
-Blinka environment variablesvalues
+## Blinka environment variablesvalues
 
 | Shell      | MCP2221 Env Configuration | U2IF Env Configuration |
 | ---------- | ------------------------- | ---------------------- |
 | Linux      | `set MCP2221=1`           | `export BLINKA_U2IF=1` |
 | Powershell | `$env:MCP2221=1`          | `$env:BLINKA_U2IF=1`   |
 
-I2C pins with U2IF
+## Assigned Pico RP2040  I2C pins with U2IF
 
 | function                | Pico Functon | Pico Pin |
 | ----------------------- | ------------ | -------- |
@@ -37,5 +37,5 @@ I2C pins with U2IF
 ## Jupyter Notebook
 
 Install with `python3 -m pip install jupyter`
-Install ipyml with `python3 -m pip install ipympl`
+Install ipympl with `python3 -m pip install ipympl`
 Launch with `jupyter lab`
