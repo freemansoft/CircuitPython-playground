@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2022 Joe Freeman joe@freemansoft.com
+#
+# SPDX-License-Identifier: MIT
+#
 #
 # https://learn.adafruit.com/scanning-i2c-addresses/circuitpython
 # CircuitPython I2C Device Address Scan

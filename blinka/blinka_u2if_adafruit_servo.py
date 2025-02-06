@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2022 Joe Freeman joe@freemansoft.com
+#
+# SPDX-License-Identifier: MIT
+#
 # Derived from the adafruit_motor section of
 # The linux code runs fine for the Pico U2IF because it is blinka code
 # https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/pwm-outputs-servos
